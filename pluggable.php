@@ -9,7 +9,6 @@ require_once('utils.php');
 
 class PluggableException extends Exception { }
 
-
 /**
  * Reads in the plugins/ directory and caches the @hook PHPDoc directive
  * @param options A list of options to configure pluggable
@@ -91,8 +90,6 @@ function pluggable_serve($hook, &$hook_argument = NULL, $options = array()) {
   }
   
 }
-
-
 
 /**
  * Returns the plugins path
