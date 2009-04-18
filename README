@@ -1,0 +1,70 @@
+
+Pluggable PHP
+
+pluggable-php is a simple plugin (or extension) system for any PHP code. 
+
+-----------------
+ Getting the code
+-----------------
+
+Github repository at http://github.com/gvishnu/pluggable-php
+
+ 
+
+-----------------
+ Configuring
+-----------------
+
+There's nothing much to configure, just move pluggable.php and utils.php to your project, make a plugins/ directory and start adding plugins. 
+
+-----------------
+ Short Tutorial
+-----------------
+
+Take a look at the examples plugins/ directory to understand how to structure a plugin. From a plugin system, what you'll need is extensibility (of course) and a concise syntax. The file example.php provides a sample of how to make your PHP project rely on pluggable. 
+
+Replace instances where you need an extension with a call to pluggable_serve("hook_name"). As you can see, we call these replacements "hooks" - envision a pirate claw stealing bits of your code and replacing them.
+
+Hooks can be used to add new behavior to your code. It can:
+1. Return a value.
+2. Return multiple values.
+3. Act as before_ and after_ hooks subtly modifying data.
+
+Hooks can be chained together, with multiple plugins serving a pluggable hook, although you cannot specify the plugin load order.
+
+To make a plugin, take a look at the example plugins in the plugins/ directory. The only special directive here is actually not in the code, but in the PHPDoc comment block preceding your plugin file. It looks like this:
+
+````````````````````````````````````````````````````````````````````
+ @pluggable_hook hook_name @with function_name
+````````````````````````````````````````````````````````````````````
+e.g:
+
+````````````````````````````````````````````````````````````````````
+ @pluggable_hook replace_welcome_message @with org_vish_in_htmlize
+````````````````````````````````````````````````````````````````````
+
+As you can see, it's recommended you use the reverse FQDN notation for functions to avoid name collisions.
+
+-----------------
+ FAQ
+-----------------
+
+Q: Can I store the plugins somewhere else?
+
+Yes! Just pass in plugins_path as a key to $options in pluggable_init, for example:
+
+````````````````````````````````````````````````````````````````````
+ pluggable_init(array('plugins_path' => '../examples'))
+````````````````````````````````````````````````````````````````````
+
+Q: What is utils.php?
+
+It's just a file with convenient helper functions.
+
+Q: Has pluggable been used in production anywhere?
+
+Not yet! If you're planning to, drop me a mail!
+
+--
+ Vishnu Gopal
+ April 19, 2009
