@@ -3,7 +3,7 @@
  * Singh is King
  * @package pluggable
  * @author Vishnu Gopal
- * @pluggable_hook before_welcome_message @with org_vish_in_singh_is_king
+ * @pluggable_hook before_welcome_message @with in_vish_singh_is_king
  */
 
 /**
@@ -12,7 +12,7 @@
  * Notice the plugin three_two_one is also using the same hook.
  * Plugins are called in unspecified order.
  */
-function org_vish_in_singh_is_king() {
+function in_vish_singh_is_king() {
   echo "Singh is King!\n";
 }
 

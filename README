@@ -40,7 +40,7 @@ To make a plugin, take a look at the example plugins in the plugins/ directory. 
 e.g:
 
 ````````````````````````````````````````````````````````````````````
- @pluggable_hook replace_welcome_message @with org_vish_in_htmlize
+ @pluggable_hook replace_welcome_message @with in_vish_htmlize
 ````````````````````````````````````````````````````````````````````
 
 As you can see, it's recommended you use the reverse FQDN notation for functions to avoid name collisions.
